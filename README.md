@@ -1,6 +1,13 @@
 
 ## Rocket Elevators REST API
 
+### Week 9 Odyssey
+
+acquired last weeks project and saved it to a private repo deployed it to azure services and set the CORS so it can be called. : new api-URL :  https://rocket-elevators-status.azurewebsites.net
+
+
+
+
 ### FALL-2020-TEAM-API-2 - Week 8 Odyssey 
 
 #### TEAM MEMBERS:
