@@ -21,7 +21,6 @@ namespace Intervention_management
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                    
                 });
     }
 }
