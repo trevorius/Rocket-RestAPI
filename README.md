@@ -5,6 +5,8 @@
 
 acquired last weeks project and saved it to a private repo deployed it to azure services and set the CORS so it can be called. : new api-URL :  https://rocket-elevators-status.azurewebsites.net
 
+the deploy is directly connected to AZURE any push to deploy branch will automatically be deployed to the remote api
+
 
 
 
