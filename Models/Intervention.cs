@@ -9,8 +9,8 @@ public class Intervention
 {
     public long Id { get; set; }
     public long? battery_id { get; set; }
-    // public long column_id { get; set; }
-    // public long elevator_id { get; set; }
+    public long? column_id { get; set; }
+    public long? elevator_id { get; set; }
     public DateTime? start_date { get; set; }
     public DateTime? end_date { get; set; }
 

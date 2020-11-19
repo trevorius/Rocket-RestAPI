@@ -47,18 +47,37 @@ namespace Intervention_management.Controllers
         // PUT: api/Interventions/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutIntervention(long id, Intervention intervention)
+        [HttpPut("inprogress/{id}")]
+        public async Task<IActionResult> PutInProgressStatusIntervention(long id, Intervention intervention)
         {
+            //save intervention in a temporary variable
+            var tmpIntervention = _context.interventions.Where(e => e.Id == intervention.Id).FirstOrDefault<Intervention>();
+
             if (id != intervention.Id)
             {
                 return BadRequest();
             }
-
+            _context.Entry(tmpIntervention).State = EntityState.Detached;
             _context.Entry(intervention).State = EntityState.Modified;
 
             try
             {
+                intervention.Id = tmpIntervention.Id;
+                intervention.start_date = DateTime.Now;
+                intervention.end_date = tmpIntervention.end_date;
+                intervention.result = tmpIntervention.result;
+                intervention.report = tmpIntervention.report;
+                intervention.status = "InProgress";
+                intervention.created_at = tmpIntervention.created_at;
+                intervention.updated_at = DateTime.Now;
+                intervention.author = tmpIntervention.author;
+                intervention.customer_id = tmpIntervention.customer_id;
+                intervention.building_id = tmpIntervention.building_id;
+                intervention.employee_id = tmpIntervention.employee_id;
+                intervention.battery_id = tmpIntervention.battery_id;
+                intervention.column_id = tmpIntervention.column_id;
+                intervention.elevator_id = tmpIntervention.elevator_id;
+
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
