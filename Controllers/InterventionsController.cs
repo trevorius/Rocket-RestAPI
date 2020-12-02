@@ -166,7 +166,20 @@ namespace Intervention_management.Controllers
             return PendingInterventions;
         }
 
-        
+        [HttpPost]
+        public async Task<ActionResult<Intervention>> PostIntervention(Intervention intervention)
+        {
+            _context.interventions.Add(intervention);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetIntervention", new { id = intervention.Id }, intervention);
+        }
+
+       
+        private bool CustomerExists(long id)
+        {
+            return _context.customers.Any(e => e.Id == id);
+        }
 
         private bool InterventionExists(long id)
         {
