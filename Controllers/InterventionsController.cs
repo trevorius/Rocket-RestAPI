@@ -165,14 +165,14 @@ namespace Intervention_management.Controllers
             
             return PendingInterventions;
         }
-
+        // POST: api/interventions/
         [HttpPost]
         public async Task<ActionResult<Intervention>> PostIntervention(Intervention intervention)
         {
             _context.interventions.Add(intervention);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetIntervention", new { id = intervention.Id }, intervention);
+            return CreatedAtAction(nameof(GetIntervention), new { id = intervention.Id }, intervention);
         }
 
        
