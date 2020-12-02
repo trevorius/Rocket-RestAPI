@@ -118,6 +118,26 @@ namespace Intervention_management.Controllers
             return NoContent();
         }
 
+        // Get:api/columns/for-battery-{id}
+        [HttpGet("for-battery-{id}")]
+        public ActionResult<List<Column>> GetBatteryColumn(long id)
+        {
+            // get a complete list of columns
+            List<Column> columnsAll = _context.columns.ToList();
+            List<Column> BatteryColumns = new List<Column>();
+            // select relevant columns
+            foreach(Column column in columnsAll)
+            {
+                if ((column.battery_id) == id)
+                {   
+                    // only add  that belong to desired building
+                    BatteryColumns.Add(column);
+                }
+            }
+            return BatteryColumns;
+             
+        }
+        
         
         private bool ColumnExists(long id)
         {
