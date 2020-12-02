@@ -120,6 +120,25 @@ namespace Intervention_management.Controllers
             return NoContent();
         }
 
+        // Get:api/batteries/for-building-{id}
+        [HttpGet("for-building-{id}")]
+        public ActionResult<List<Battery>> GetBuildingBatterie(long id)
+        {
+            // get a complete list of batteries
+            List<Battery> batteriesAll = _context.batteries.ToList();
+            List<Battery> buildingBatteries = new List<Battery>();
+            // select relevant batteries
+            foreach(Battery battery in batteriesAll)
+            {
+                if (Int32.Parse(battery.building_id) == id)
+                {   
+                    // only add batteries that belong to desired building
+                    buildingBatteries.Add(battery);
+                }
+            }
+            return buildingBatteries;
+             
+        }
 
         
 
