@@ -128,7 +128,7 @@ namespace Intervention_management.Controllers
             // select relevant columns
             foreach(Column column in columnsAll)
             {
-                if ((column.battery_id) == id)
+                if ((column.customer_id) == id)
                 {   
                     // only add  that belong to desired building
                     BatteryColumns.Add(column);

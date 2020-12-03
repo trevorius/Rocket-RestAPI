@@ -13,4 +13,5 @@ public class Building
     public DateTime updated_at{ get; set; }
     public long customer_id{ get; set; }
     public long address_id{ get; set; }
+    public string address_of_the_building { get; set; }
 };

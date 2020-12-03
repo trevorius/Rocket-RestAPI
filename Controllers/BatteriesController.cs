@@ -130,7 +130,7 @@ namespace Intervention_management.Controllers
             // select relevant batteries
             foreach(Battery battery in batteriesAll)
             {
-                if (Int32.Parse(battery.building_id) == id)
+                if ((battery.customer_id) == id)
                 {   
                     // only add batteries that belong to desired building
                     buildingBatteries.Add(battery);

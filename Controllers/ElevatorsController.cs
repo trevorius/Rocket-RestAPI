@@ -131,7 +131,7 @@ namespace Intervention_management.Controllers
             // select relevant elevators
             foreach(Elevator elevator in ElevatorsAll)
             {
-                if ((elevator.column_id) == id)
+                if ((elevator.customer_id) == id)
                 {   
                     // only add elevators that belong to desired column
                     ColumnElevators.Add(elevator);
