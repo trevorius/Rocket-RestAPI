@@ -1,14 +1,29 @@
 
+
 ## Rocket Elevators REST API
 
-### Week 9 Odyssey
+### Week 9 Odyssey CONSOLIDATION
 
-acquired last weeks project and saved it to a private repo deployed it to azure services and set the CORS so it can be called. : new api-URL :  https://rocket-elevators-status.azurewebsites.net
+Acquired last weeks project and saved it to a private repo deployed it to azure services and set the CORS so it can be called. : new api-URL :  https://rocket-elevators-status.azurewebsites.net
 
-the deploy is directly connected to AZURE any push to deploy branch will automatically be deployed to the remote api
+The deploy is directly connected to AZURE any push to deploy branch will automatically be deployed to the remote api.
+
+-The new Endpoints for interventions have been implemented as follows :
+a  **GET**  request to  [https://rocket-elevators-status.azurewebsites.net/api/interventions](https://rocket-elevators-status.azurewebsites.net/api/interventions)  will return all interventions
+
+a  **GET**  request to  [https://rocket-elevators-status.azurewebsites.net/api/interventions/pending-interventions](https://rocket-elevators-status.azurewebsites.net/api/interventions/pending-interventions)  will return all pending interventions that haven't begun.
+
+a  **PUT**  request to.  [https://rocket-elevators-status.azurewebsites.net/api/interventions/change-status-to-in-progress/{id}](https://rocket-elevators-status.azurewebsites.net/api/interventions/change-status-to-in-progress/%7Bid%7D)  will change the status to inprogress and time stame the start date. you have to include in the body the id wich has to correspond with the URL id, other fields are not necessary and will be ignored.
+
+a  **PUT**  request to  [https://rocket-elevators-status.azurewebsites.net/api/interventions/change-status-to-completed/{id}](https://rocket-elevators-status.azurewebsites.net/api/interventions/change-status-to-completed/%7Bid%7D)  will change the status to Completed and time stamp the end date. you have to include in the body the id which has to correspond with the URL id, other fields are not necessary and will be ignored. the API complete collection can be found here :
+
+[![Run in Postman](https://camo.githubusercontent.com/16a903fe0c8e857e22585b47d674a11dc7fd16a2d4ef6a2d0e932e70a62cb0d6/68747470733a2f2f72756e2e7073746d6e2e696f2f627574746f6e2e737667)](https://app.getpostman.com/run-collection/47f22848ca3c199cba2f)
 
 
+## 
+##
 
+.
 
 ### FALL-2020-TEAM-API-2 - Week 8 Odyssey 
 
