@@ -166,15 +166,35 @@ namespace Intervention_management.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCustomer(long id, Customer customer)
         {
+            var modifiedcustomer = _context.customers.Where(e => e.Id == customer.Id).FirstOrDefault<Customer>();
+
             if (id != customer.Id)
             {
                 return BadRequest();
             }
-
+            _context.Entry(modifiedcustomer).State = EntityState.Detached;
             _context.Entry(customer).State = EntityState.Modified;
 
             try
             {
+
+                customer.customer_creation_date = modifiedcustomer.customer_creation_date;
+                //customer.company_name = modifiedcustomer.company_name ;
+                //customer.company_headquarter_address = modifiedcustomer.company_headquarter_address;
+                //customer.full_name_company_contact = modifiedcustomer.full_name_company_contact;
+                //customer.company_contact_phone = modifiedcustomer.company_contact_phone;
+                customer.email_company_contact = modifiedcustomer.email_company_contact;
+                customer.company_description = modifiedcustomer.company_description;
+                customer.full_name_service_technical_authority = modifiedcustomer.full_name_service_technical_authority;
+                customer.technical_authority_phone = modifiedcustomer.technical_authority_phone;
+                customer.technical_manager_email = modifiedcustomer.technical_manager_email;
+                customer.created_at = modifiedcustomer.created_at;
+                customer.updated_at = DateTime.Now;
+                customer.admin_user_id = modifiedcustomer.admin_user_id;
+                customer.address_id = modifiedcustomer.address_id;
+                customer.employee_id = modifiedcustomer.employee_id;
+                
+
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
