@@ -169,7 +169,10 @@ namespace Intervention_management.Controllers
         [HttpPost]
         public async Task<ActionResult<Intervention>> PostIntervention(Intervention intervention)
         {
-            _context.interventions.Add(intervention);
+            Intervention finalIntervention = intervention;
+            finalIntervention.result = "Incomplete";
+            finalIntervention.status = "Pending";
+            _context.interventions.Add(finalIntervention);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetIntervention), new { id = intervention.Id }, intervention);
