@@ -165,8 +165,24 @@ namespace Intervention_management.Controllers
             
             return PendingInterventions;
         }
+        // POST: api/interventions/
+        [HttpPost]
+        public async Task<ActionResult<Intervention>> PostIntervention(Intervention intervention)
+        {
+            Intervention finalIntervention = intervention;
+            finalIntervention.result = "Incomplete";
+            finalIntervention.status = "Pending";
+            _context.interventions.Add(finalIntervention);
+            await _context.SaveChangesAsync();
 
-        
+            return CreatedAtAction(nameof(GetIntervention), new { id = intervention.Id }, intervention);
+        }
+
+       
+        private bool CustomerExists(long id)
+        {
+            return _context.customers.Any(e => e.Id == id);
+        }
 
         private bool InterventionExists(long id)
         {
