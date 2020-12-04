@@ -1,4 +1,27 @@
+## WEEK 11 Understanding the .NET Framework
 
+For the implementation of this weeks task : the customer portal in c#
+
+new end points have been implemented : 
+
+new **GET** : 
+
+get the customer information form their email address (used for registry and  product information page)
+https://rocket-elevators-status.azurewebsites.net/api/Customers/email/{email}
+
+the following endpoints extract the information reletaive to their parent element .
+https://rocket-elevators-status.azurewebsites.net/api/buildings/for-customer-{id}
+https://rocket-elevators-status.azurewebsites.net/api/batteries/for-building-{id}
+https://rocket-elevators-status.azurewebsites.net/api/columns/for-battery-{id}
+https://rocket-elevators-status.azurewebsites.net/api/elevators/for-column-{id}
+
+new **PUT**
+to change the customer information has been updated to only be able to change the information taht a customer should be able to change (they can not change creation date, user id, or tecnician id): 
+https://rocket-elevators-status.azurewebsites.net/api/Customers/5
+
+new **POST**
+to submit the constomer filled intervention form.
+https://rocket-elevators-status.azurewebsites.net/api/interventions/
 
 ## Rocket Elevators REST API
 
