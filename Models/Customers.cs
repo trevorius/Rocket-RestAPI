@@ -3,7 +3,7 @@ using System;
 public class Customer
 {
     public long Id { get; set; }
-    public DateTime customer_creation_date { get; set; }
+    public DateTime? customer_creation_date { get; set; }
     public string company_name { get; set; }
     public string company_headquarter_address { get; set; }
     public string full_name_company_contact { get; set; }

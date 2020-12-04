@@ -42,6 +42,21 @@ namespace Intervention_management.Controllers
 
             return customer;
         }
+        // Get: api/Customers/email/{email}
+        [HttpGet("email/{email}")]
+        public async Task<ActionResult<Customer>> GetcustomersByEmail(string email)
+        {
+            var customerList =  await _context.customers.ToListAsync();
+            foreach (Customer customer in customerList)
+            {
+                if (customer.email_company_contact == email)
+                {
+                    return customer;
+                }
+            }
+            return NotFound();
+        }
+
         // GET: api/Customers/count-in-last-50-days
         [HttpGet("count-in-last-{delay}-days")]
         public async Task<ActionResult<Int64>> CountRecentCustomers(long delay)

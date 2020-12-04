@@ -155,6 +155,25 @@ namespace Intervention_management.Controllers
 
             return building;
         }
+        // Get:api/buildings/for-customer-{id}
+        [HttpGet("for-customer-{id}")]
+        public ActionResult<List<Building>> GetCustomerBuildings(long id)
+        {
+            // get a complete list of buildings
+            List<Building> buildingsAll = _context.buildings.ToList();
+            List<Building> CustomersBuildings = new List<Building>();
+            // select relevant buildings
+            foreach(Building building in buildingsAll)
+            {
+                if (building.customer_id == id)
+                {   
+                    // only add buildings that belong to desired customer
+                    CustomersBuildings.Add(building);
+                }
+            }
+            return CustomersBuildings;
+             
+        }
 
         
         private bool BuildingExists(long id)

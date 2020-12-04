@@ -121,6 +121,25 @@ namespace Intervention_management.Controllers
             return NoContent();
         }
 
+        // Get:api/elevators/for-column-{id}
+        [HttpGet("for-column-{id}")]
+        public ActionResult<List<Elevator>> GetColumnElevator(long id)
+        {
+            // get a complete list of elevators
+            List<Elevator> ElevatorsAll = _context.elevators.ToList();
+            List<Elevator> ColumnElevators = new List<Elevator>();
+            // select relevant elevators
+            foreach(Elevator elevator in ElevatorsAll)
+            {
+                if ((elevator.customer_id) == id)
+                {   
+                    // only add elevators that belong to desired column
+                    ColumnElevators.Add(elevator);
+                }
+            }
+            return ColumnElevators;
+             
+        }
         
         private bool ElevatorExists(long id)
         {
