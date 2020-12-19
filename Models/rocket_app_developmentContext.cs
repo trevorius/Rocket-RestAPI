@@ -21,6 +21,7 @@ namespace intervention_management.Models
         public DbSet<Customer> customers { get; set; }
         public DbSet<User> admin_users {get; set; }
         public DbSet<Intervention> interventions {get; set; }
+        public DbSet<Employee> employees {get; set; }
 
         
     }
