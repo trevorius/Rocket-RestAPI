@@ -103,6 +103,7 @@ namespace Intervention_management.Controllers
                 elevator.updated_at = DateTime.Now;
                 elevator.column_id = modifiedElevator.column_id;
                 elevator.customer_id = modifiedElevator.customer_id;
+                elevator.serial_number = modifiedElevator.serial_number;
 
                 await _context.SaveChangesAsync();
             }
