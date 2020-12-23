@@ -1,4 +1,11 @@
 # REST API
+## WEEK 14 Mobile App
+
+In order to create the technicians mobile app a new end point had to be implemented and can be accessed as a ***GET*** request here:
+https://rocket-elevators-status.azurewebsites.net/api/employees for a list of all employees
+
+or : https://rocket-elevators-status.azurewebsites.net/api/employees/email/{EMAIL} to verrifie if EMAIL is an employee E-mail if so the request will return the boolean :  `true` 
+If not the request will return a 404 not found.
 
 ## WEEK 11 Understanding the .NET Framework
 
